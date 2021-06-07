@@ -137,11 +137,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static'),
 
 ]
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+
 
 MEDIA_URL='/images/'
 
@@ -175,8 +176,8 @@ AWS_S3_USE_SSL = True
 #AWS_S3_ADDRESSING_STYLE = 'path'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #AWS_S3_PROXIES = ‘http’:‘foo.bar:3128’,‘http://hostname’: ‘foo.bar:4012’
 #AWS_S3_ENDPOINT_URL = 'http://vishald.crm.bucket.s3-website.ap-south-1.amazonaws.com'
